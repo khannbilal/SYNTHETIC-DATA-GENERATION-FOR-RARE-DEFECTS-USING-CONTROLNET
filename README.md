@@ -39,7 +39,7 @@ Dataset: NEU Surface Defect Database, DAGM 2007
  Metrics: F1-score, Precision, Recall, Accuracy.
  Baselines: Real-only training vs. Hybrid synthetic–real training.
 
- 5. Architecture (Textual Diagram)
+# Architecture (Textual Diagram)
     
         ┌────────────────────────────┐
         │     Real Defect Dataset     │
