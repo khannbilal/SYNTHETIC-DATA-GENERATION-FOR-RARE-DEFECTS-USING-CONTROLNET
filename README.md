@@ -1,21 +1,21 @@
 # Synthetic Data Generation for Rare Defects using ControlNet
 
-Overview
+# Overview
 Developed a synthetic data generation pipeline leveraging ControlNet and Stable Diffusion to augment industrial defect datasets with photorealistic, controllable synthetic samples. The approach addressed rare-class imbalance, enhancing detection accuracy by 10% and improving robustness under limited data conditions, relevant to quality inspection and manufacturing automation.
 
-Framework
+# Framework
 Domains: Generative AI, Computer Vision
 Frameworks/Tools: ControlNet, Stable Diffusion, PyTorch, OpenCV, Edge Maps
 Goal: Generate high-fidelity synthetic defect images to balance underrepresented classes
 Dataset: NEU Surface Defect Database, DAGM 2007
 
-Scope
+# Scope
  Implement ControlNet-guided diffusion for spatially constrained synthetic data generation.
  Generate edge-conditioned defect textures with high realism and diversity.
  Use synthetic–real hybrid training for model robustness enhancement.
  Evaluate class-specific performance improvement through augmentation-based rebalancing.
 
- Methodology
+# Methodology
  1. Data Preprocessing
 
  Extracted edge maps via Canny + Sobel for structural conditioning.
@@ -39,17 +39,17 @@ Scope
  Metrics: F1-score, Precision, Recall, Accuracy.
  Baselines: Real-only training vs. Hybrid synthetic–real training.
 
-Results
+# Results
 | Metric    | Real-Only | Synthetic + Real | Improvement |
 | Accuracy  | 88.3%     | 97.1%        | +8.8%       |
 | F1-score  | 0.84      | 0.92         | +0.08       |
 | Precision | 0.89      | 0.95         | +0.06       |
 | Recall    | 0.83      | 0.91         | +0.08       |
 
-Qualitative Insight:
+# Qualitative Insight:
 Generated defect textures (scratches, inclusions, cracks) exhibit structural fidelity and realistic lighting, enabling balanced model training without manual labeling effort.
 
- Architecture (Textual Diagram)
+ # Architecture (Textual Diagram)
 ┌────────────────────────────┐
 │     Real Defect Dataset     │
 └───────────┬────────────────┘
@@ -76,19 +76,19 @@ Generated defect textures (scratches, inclusions, cracks) exhibit structural fid
    │ Evaluation & QA  │
    └─────────────────┘
 
-Conclusion
+# Conclusion
 The ControlNet-based synthetic generation pipeline effectively addressed class imbalance by producing context-aware, high-quality defect images, improving both rare-class precision and overall accuracy. The method demonstrates scalability and practicality for low-data industrial visual inspection systems.
 
-Future Work
+# Future Work
  Extend to 3D texture and surface topology synthesis for depth-aware inspection.
  Integrate diffusion–GAN hybrid models for sharper texture realism.
  Evaluate transferability to other industrial domains (e.g., textiles, PCB, automotive).
 
-References
+# References
 1. Zhang, L. et al. (2023). ControlNet: Adding Conditional Control to Text-to-Image Diffusion Models.
 2. Rombach, R. et al. (2022). High-Resolution Image Synthesis with Latent Diffusion Models. CVPR.
 3. Bergmann, P. et al. (2019). MVTec AD — A Comprehensive Real-World Dataset for Unsupervised Anomaly Detection.
 
-Closest Research Paper:
+# Closest Research Paper:
 > Zhang, L. et al. (2023). ControlNet: Adding Conditional Control to Text-to-Image Diffusion Models.
 > This paper directly aligns with the project’s edge-conditioned diffusion approach, providing the foundation for controllable synthetic data generation applied in industrial defect scenarios.
