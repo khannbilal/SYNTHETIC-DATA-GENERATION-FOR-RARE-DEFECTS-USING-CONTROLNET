@@ -39,6 +39,34 @@ Dataset: NEU Surface Defect Database, DAGM 2007
  Metrics: F1-score, Precision, Recall, Accuracy.
  Baselines: Real-only training vs. Hybrid synthetic–real training.
 
+ 5. Architecture (Textual Diagram)
+    
+        ┌────────────────────────────┐
+        │     Real Defect Dataset     │
+        └───────────┬────────────────┘
+                    │
+           ┌────────▼────────┐
+           │ Edge Map Extract │
+           └────────┬────────┘
+                    │
+           ┌────────▼────────┐
+           │ ControlNet + SD │
+           │ (Edge + Prompt) │
+           └────────┬────────┘
+                    │
+           ┌────────▼────────┐
+           │ Synthetic Images │
+           └────────┬────────┘
+                    │
+           ┌────────▼────────┐
+           │ CNN Classifier   │
+           │ (Hybrid Training)│
+           └────────┬────────┘
+                    │
+           ┌────────▼────────┐
+           │ Evaluation & QA  │
+           └─────────────────┘
+   
 # Results
 | Metric    | Real-Only | Synthetic + Real | Improvement |
 | Accuracy  | 88.3%     | 97.1%        | +8.8%       |
@@ -48,33 +76,6 @@ Dataset: NEU Surface Defect Database, DAGM 2007
 
 # Qualitative Insight:
 Generated defect textures (scratches, inclusions, cracks) exhibit structural fidelity and realistic lighting, enabling balanced model training without manual labeling effort.
-
- # Architecture (Textual Diagram)
-┌────────────────────────────┐
-│     Real Defect Dataset     │
-└───────────┬────────────────┘
-            │
-   ┌────────▼────────┐
-   │ Edge Map Extract │
-   └────────┬────────┘
-            │
-   ┌────────▼────────┐
-   │ ControlNet + SD │
-   │ (Edge + Prompt) │
-   └────────┬────────┘
-            │
-   ┌────────▼────────┐
-   │ Synthetic Images │
-   └────────┬────────┘
-            │
-   ┌────────▼────────┐
-   │ CNN Classifier   │
-   │ (Hybrid Training)│
-   └────────┬────────┘
-            │
-   ┌────────▼────────┐
-   │ Evaluation & QA  │
-   └─────────────────┘
 
 # Conclusion
 The ControlNet-based synthetic generation pipeline effectively addressed class imbalance by producing context-aware, high-quality defect images, improving both rare-class precision and overall accuracy. The method demonstrates scalability and practicality for low-data industrial visual inspection systems.
